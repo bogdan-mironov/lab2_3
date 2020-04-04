@@ -8,8 +8,8 @@ namespace lab2_3
 {
     class part3
     {
-        static List<int> intlist = new List<int>();
-        
+        //static List<int> intlist = new List<int>();
+        static IEnumerable<int> intlist;
         static public void Execute()
         {
             GenerateNewIntList();
@@ -21,13 +21,11 @@ namespace lab2_3
         }
         static public void GenerateNewIntList()
         {
-            Random blessrng = new Random();
+            intlist =  Enumerable.Range(-10, 30);
             string omg = "";
-            for (int i = 0; i < blessrng.Next(10, 50); i++)
+            foreach(int  number in intlist)
             {
-                int blessednumber = blessrng.Next(-1000, 10000);
-                intlist.Add(blessednumber);
-                omg += $"{blessednumber}, ";
+                omg += $"{number},";
             }
             Console.WriteLine(omg.TrimEnd(',',' '));
         }
